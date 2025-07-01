@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Student</title>
+    <script>
+        let submissionCount = 0;
+
+        function handleSubmit(event) {
+            if (submissionCount >= 10) {
+                alert("Maximum of 10 students can be added.");
+                event.preventDefault(); // Stop form submission
+                return false;
+            }
+
+            submissionCount++;
+            console.log("Student " + submissionCount + " added.");
+            // Allow form submission to continue
+        }
+    </script>
+</head>
+<body>
+    <h2>Add New Student</h2>
+    <form action="/add_student" method="post" onsubmit="handleSubmit(event)">
+        <label>Sl No:</label><br>
+        <input type="number" name="sl_no" required><br><br>
+
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Roll No:</label><br>
+        <input type="text" name="rollno" required><br><br>
+
+        <label>Subject 1 Marks:</label><br>
+        <input type="number" name="sub1marks" required><br><br>
+
+        <label>Subject 2 Marks:</label><br>
+        <input type="number" name="sub2marks" required><br><br>
+
+        <label>Subject 3 Marks:</label><br>
+        <input type="number" name="sub3marks" required><br><br>
+
+        <input type="submit" value="Add Student">
+    </form>
+</body>
+</html>
